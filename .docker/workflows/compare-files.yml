@@ -18,14 +18,14 @@ jobs:
       - name: Checkout dummy1
         uses: actions/checkout@v2
         with:
-          repository: user/dummy1
+          repository: mmgouthamkv/dummy1
           path: dummy1
 
       # Step 2: Checkout dummy2 repository
       - name: Checkout dummy2
         uses: actions/checkout@v2
         with:
-          repository: user/dummy2
+          repository: mmgouthamkv/dummy2
           path: dummy2
           
       # Step 3: Compare files and look for RestTemplate calls
