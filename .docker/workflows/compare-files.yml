@@ -1,0 +1,53 @@
+name: Compare Files in Dummy1 and Dummy2
+
+# This workflow will run when changes are pushed to the main branch or on pull request
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  compare-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout dummy1 repository (the repository where the workflow is created)
+      - name: Checkout dummy1
+        uses: actions/checkout@v2
+        with:
+          repository: user/dummy1
+          path: dummy1
+
+      # Step 2: Checkout dummy2 repository
+      - name: Checkout dummy2
+        uses: actions/checkout@v2
+        with:
+          repository: user/dummy2
+          path: dummy2
+          
+      # Step 3: Compare files and look for RestTemplate calls
+      - name: Compare files and search for RestTemplate usage
+        run: |
+          # Define file paths
+          FILE1=dummy1/path/to/file1.java
+          FILE2=dummy2/path/to/file2.java
+          
+          # Check if files exist
+          if [[ ! -f "$FILE1" || ! -f "$FILE2" ]]; then
+            echo "One of the files does not exist. Exiting."
+            exit 1
+          fi
+
+          # Search for RestTemplate calls in both files
+          echo "Checking for RestTemplate usage in $FILE1"
+          grep -n "RestTemplate" "$FILE1" || echo "No RestTemplate found in $FILE1"
+
+          echo "Checking for RestTemplate usage in $FILE2"
+          grep -n "RestTemplate" "$FILE2" || echo "No RestTemplate found in $FILE2"
+          
+          # Compare both files
+          echo "Comparing $FILE1 with $FILE2"
+          diff "$FILE1" "$FILE2" || echo "Files are different"
