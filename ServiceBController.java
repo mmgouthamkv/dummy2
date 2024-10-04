@@ -13,6 +13,7 @@ public class ServiceBController {
        // Call to ServiceA
        String url = "http://localhost:8080/service-a";
        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+       System.out.println("hello");
        return "Response from ServiceA: " + response.getBody();
    }
 }
