@@ -18,6 +18,7 @@ jobs:
       - name: Checkout dummy2
         uses: actions/checkout@v1
         with:
+          ref: main
           repository: mmgouthamkv/dummy2
           path: dummy2
 
