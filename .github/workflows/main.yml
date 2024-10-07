@@ -32,8 +32,8 @@ jobs:
       - name: Compare files and search for RestTemplate usage
         run: |
           # Define file paths
-          FILE1=dummy1/path/to/file1.java
-          FILE2=dummy2/path/to/file2.java
+          FILE2=dummy2/blob/main/ServiceBController.java
+          FILE1=dummy1/blob/main/ServiceAController.java
           
           # Check if files exist
           if [[ ! -f "$FILE1" || ! -f "$FILE2" ]]; then
