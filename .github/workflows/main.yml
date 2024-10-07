@@ -36,7 +36,8 @@ jobs:
           FILE1=dummy1/blob/main/ServiceAController.java
           
           # Check if files exist
-          echo "$FILE1"
+          echo -f "$FILE1" 
+          grep -n "RestTemplate" "$FILE1"
           if [[ ! -f "$FILE1" || ! -f "$FILE2" ]]; then
             echo "One of the files does not exist. Exiting."
             exit 1
