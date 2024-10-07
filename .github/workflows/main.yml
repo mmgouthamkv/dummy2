@@ -18,9 +18,9 @@ jobs:
       - name: Checkout dummy2
         uses: actions/checkout@v1
         with:
-          ref: main
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           repository: mmgouthamkv/dummy2
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          ref: main
           path: dummy2
 
       # Step 2: Checkout dummy2 repository
