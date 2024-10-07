@@ -15,18 +15,18 @@ jobs:
 
     steps:
       # Step 1: Checkout dummy1 repository (the repository where the workflow is created)
-      - name: Checkout dummy1
-        uses: actions/checkout@v2
-        with:
-          repository: mmgouthamkv/dummy1
-          path: dummy1
-
-      # Step 2: Checkout dummy2 repository
       - name: Checkout dummy2
         uses: actions/checkout@v2
         with:
           repository: mmgouthamkv/dummy2
           path: dummy2
+
+      # Step 2: Checkout dummy2 repository
+      - name: Checkout dummy1
+        uses: actions/checkout@v2
+        with:
+          repository: mmgouthamkv/dummy1
+          path: dummy1    
           
       # Step 3: Compare files and look for RestTemplate calls
       - name: Compare files and search for RestTemplate usage
