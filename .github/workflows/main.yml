@@ -16,7 +16,7 @@ jobs:
     steps:
       # Step 1: Checkout dummy1 repository (the repository where the workflow is created)
       - name: Checkout dummy2
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           repository: mmgouthamkv/dummy2
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
